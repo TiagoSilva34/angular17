@@ -1,9 +1,12 @@
 @use '../../../variables';
+@use '../../../mixins';
 
 #header {
     width: 100%;
     height: 100px;
     background-color: variables.$app-header-background;
+    @include mixins.center-element;
+
 
     h2 {
         color: #fff;
