@@ -1,0 +1,28 @@
+@use "../variables";
+@use "../mixins";
+
+.app {
+    width: 100%;
+
+    .main {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      .container {
+        @include mixins.container;
+        padding: 1rem 1.5rem;
+      }
+
+      @media (min-width: 800px) {
+        .container {
+          width: 100%;
+          flex-direction: row;
+          justify-content: space-between;
+          max-width: 1200px;
+        }  
+      }
+    }
+  }
+
+  
