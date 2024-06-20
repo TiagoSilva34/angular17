@@ -6,7 +6,7 @@ let coinParameter: string = '';
 
 function setNewCoin() {
   /**
-   * Procedimento para indicar o código de uma moeda, fazer a busca na API e mostrar a moeda no website
+   * Procedimento para indicar o código de uma moeda, fazer a busca na API e exibir suas informações
   */
   const coinCodeList = ['CAD', 'ARS', 'GBP', 'USD'];
 
