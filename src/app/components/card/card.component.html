@@ -1,18 +1,27 @@
-<div class="card">
-    <header class="card-header">
-        <h1 class="card-header-title">Dólar Canadense</h1>
-    </header>
-    <div class="card-price">
-        <span>R$ 4,37</span>
-    </div>
-    <footer class="card-footer">
-        <div class="card-footer-variation">
-            <span>Variação (%)</span>
-            <span class="card-footer-variation-value">-0.11</span>
-        </div>
-        <div class="card-footer-updated">
-            <span>Atualizado </span>
-            <span class="card-footer-timer">08:11:59</span>
-        </div>
-    </footer>
+<span *ngIf="!coinList.length && !errorMessage" class="loading">
+  <img class="loader" src="../../../assets/loader.svg" alt="carregando" width="100" height="100">
+</span>
+
+<h1 *ngIf="errorMessage && !coinList.length" class="request-error">{{ errorMessage }}</h1>
+
+@for (coin of coinList; track coin.code) {
+<div class="card" *ngIf="!errorMessage">
+  <header class="card-header">
+    <h1 class="card-header-title">{{ coin.name }}</h1>
+  </header>
+  <img class="loader" src="../../../assets/loader.svg" *ngIf="showLoader" alt="carregando" width="100" height="100">
+
+  <div class="error" *ngIf="!coin.bid">
+      <span>Algo deu Errado</span>
+      <button>Recarregar</button>
+  </div>
+  <div class="card-price">
+    <span [ngClass]="
+    {'red': coin.bid < '1.00', 
+    'green': coin.bid > '1.00' && coin.bid < '5.00',
+    'blue': coin.bid > '5.00'
+    }" *ngIf="!showLoader || coin.bid">R$ {{ coin.bid }}</span>
+  </div>
+  <app-footer [updatedDate]="updatedDate" [coin]="coin" *ngIf="!showLoader"></app-footer>
 </div>
+}

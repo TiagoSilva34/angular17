@@ -1,24 +1,31 @@
 @use '../../../variables';
 @use '../../../mixins';
 
+.request-error {
+    color: variables.$basic-text;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
 
 .card {
     background-color: variables.$card-background;
     width: 100%;
-    max-width: 430px;
     height: 428px;
-    margin: 1.2rem 0;
+    max-width: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 1px 1px 20px #787676;
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 2rem;
 
     .card-header {
         background-color: variables.$card-header-background;
         width: 100%;
         height: 119px;
         @include mixins.center-element;
-        border: 10px;
+        border-radius: 10px;
+
 
         .card-header-title {
             font-weight: 700;
@@ -28,49 +35,50 @@
         }
     }
 
+    .loader {
+        position: absolute;
+        top: 50%;
+        left: 36%;
+    }
+
+    .error {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        span {
+            color: variables.$basic-text;
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        button {
+            width: 150px;
+            height: 56px;
+            font-size: 1.2rem;
+            border: 0;
+            font-weight: 600;
+            color: variables.$basic-text;
+        }
+    }
+
     .card-price {
         width: 100%;
         @include mixins.center-element;
         color: variables.$text-green;
         font-size: 64px;
         font-weight: 500;
-    }
 
-    .card-footer {
-        width: 100%;
-        height: 112px;
-        display: flex;
-        border-top: .5px solid #CCCCCC;
-        border-bottom: .5px solid #CCCCCC;
-
-
-        .card-footer-variation,
-        .card-footer-updated {
-            width: 50%;
-            @include mixins.center-element;
-            color: variables.$text-secondary;
-            font-weight: 600;
-            font-size: 1.2rem;
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
+        .red {
+            color: variables.$text-red
         }
 
-        .card-footer-variation {
-            border-right: .5px solid #CCCCCC;
-
-            .card-footer-variation-value {
-                font-size: 2.4rem;
-                font-weight: 600;
-            }
+        .blue {
+            color: variables.$text-blue
         }
 
-        .card-footer-updated {
-
-            .card-footer-timer {
-                font-size: 2.4rem;
-                font-weight: 600;
-            }
+        .green {
+            color: variables.$text-green
         }
     }
 }
