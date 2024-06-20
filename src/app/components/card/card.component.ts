@@ -30,19 +30,6 @@ export class CardComponent {
   }
 
   loadCoinsList() {
-    // this.coinsService.getCoins().subscribe((coin) => {
-    //   this.coinList = Object.values(coin).map(item => {
-    //     item.bid = item.bid.slice(0, 4)
-
-    //     if (item.name) {
-    //       let position = item.name.indexOf("/")
-    //       item.name = item.name.slice(0, position)
-    //     }      
-
-    //     return item
-    //   })
-    // })
-
     this.coinsService.getCoins().subscribe({
       next: (response) => {
         this.coinList = Object.values(response).map(item => {
