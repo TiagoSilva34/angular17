@@ -3,26 +3,33 @@
 
 .app {
     width: 100%;
+    height: 100vh;
 
     .main {
       width: 100%;
       display: flex;
       justify-content: center;
+      align-items: center;
+      margin: 100px 0;
+      padding: 0 1.5rem;
 
-      .container {
-        @include mixins.container;
-        padding: 1rem 1.5rem;
+      .app-card {
+        @include mixins.display-column;
+        flex-wrap: wrap;
       }
 
-      @media (min-width: 800px) {
-        .container {
-          width: 100%;
+      @media (min-width: 900px) {
+        .app-card {
+          display: flex;
           flex-direction: row;
-          justify-content: space-between;
-          max-width: 1200px;
+          justify-content: space-around;
+          align-items: center;
+          width: 100%;
+          flex-wrap: wrap;
         }  
       }
     }
   }
+  
 
   
