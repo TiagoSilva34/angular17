@@ -1,56 +1,41 @@
-import { TestBed } from '@angular/core/testing';
+import { provideHttpClient } from "@angular/common/http"
+import { HttpTestingController, provideHttpClientTesting } from "@angular/common/http/testing"
+import { TestBed } from "@angular/core/testing"
+import { CoinsService } from "./coins.service"
+import { ICoinProps } from "../../type"
 
-import { CoinsService } from './coins.service';
-import {
-  HttpClientTestingModule,
-  HttpTestingController,
-  TestRequest,
-} from '@angular/common/http/testing';
-import { take } from 'rxjs';
-
-describe('CoinsService', () => {
-  var coinsService: any = CoinsService;
-  let controller: HttpTestingController;
+describe("Coin service test", () => {
+  let service: any = CoinsService
+  let controller: HttpTestingController
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      // !! Change to HttpClientTestingModule
-      imports: [HttpClientTestingModule],
-    });
-    coinsService = TestBed.inject(CoinsService);
-  });
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting()
+      ]
+    })
 
-  beforeEach((): void => {
-    coinsService = TestBed.inject(CoinsService);
-    controller = TestBed.inject(HttpTestingController);
-  });
-
-  beforeEach((): void => {
-    controller.verify();
-  });
-
-  it('should be created', () => {
-    expect(coinsService).toBeTruthy()
+    service = TestBed.inject(CoinsService)
+    controller = TestBed.inject(HttpTestingController)
   })
 
-  it('should handle get posts properly', (): void => {
-    coinsService
-      .getCoins()
-      .pipe(take(1))
-      .subscribe((res: any): void => {
-        expect(res.length).toEqual(1);
-        expect(res[0]).toEqual(1);
-      });
+  it("should create coin service", () => {
+    expect(service).toBeTruthy()
+  })
 
-      const BTCBRL = [{
-        code: "BTC"
-      }]
+  it("should check the request", () => {
+    const testData: any = {name: 'CAD'};
 
-    const request: TestRequest = controller.expectOne({ 
-      method: 'GET',
-      url: coinsService.url,
-    });
+    service.fetchCoins().subscribe((response: ICoinProps) => {
+      expect(response).toMatchObject(testData)
+    })
 
-    request.flush(BTCBRL); // <-- this is how our response body will look like, an array with one empty object
-  });
-});
+    const req = controller.expectOne('https://economia.awesomeapi.com.br/last/CAD,ARS,GBP');
+
+    expect(req.request.method).toBe('GET')
+
+    req.flush(testData)
+
+  })
+})

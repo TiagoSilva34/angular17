@@ -13,7 +13,7 @@
 
   <div class="error" *ngIf="!coin.bid">
       <span>Algo deu Errado</span>
-      <button>Recarregar</button>
+      <button (click)="refreshCoin(coin)">Recarregar</button>
   </div>
   <div class="card-price">
     <span [ngClass]="

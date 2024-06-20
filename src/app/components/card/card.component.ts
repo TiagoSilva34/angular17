@@ -30,7 +30,7 @@ export class CardComponent {
   }
 
   loadCoinsList() {
-    this.coinsService.getCoins().subscribe({
+    this.coinsService.fetchCoins().subscribe({
       next: (response) => {
         this.coinList = Object.values(response).map(item => {
           item.bid = item.bid.slice(0, 4)
@@ -48,6 +48,10 @@ export class CardComponent {
       }
     })
   }  
+
+  refreshCoin(coin: ICoinProps) {
+    console.log(coin)
+  }
 
   getCurrentTime() {
     // Pega a hora atual do windows

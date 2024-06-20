@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { ICoinProps } from '../../../type';
 
 @Component({
@@ -9,8 +9,9 @@ import { ICoinProps } from '../../../type';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-  coin = input.required<ICoinProps>()
-  updatedDate = input.required<any>()
+  coin = input<ICoinProps>()
+  pctChange = computed(() => this.coin()?.pctChange)
+  updatedDate = input<any>()
   
   ngOnInit() {
     console.log(this.coin.name)

@@ -2,16 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { ICoinProps } from '../../type';
 
+
+/**
+ * Procedimento para indicar o código de uma moeda, fazer a busca na API e exibir suas informações
+*/
 let coinParameter: string = '';
 
 function setNewCoin() {
-  /**
-   * Procedimento para indicar o código de uma moeda, fazer a busca na API e exibir suas informações
-  */
-  const coinCodeList = ['CAD', 'ARS', 'GBP', 'USD'];
+  const coinCodeList = ['CAD', 'ARS', 'GBP'];
 
   coinCodeList.reduce((a, b) => {
-    return (coinParameter = a + ',' + b);
+    return coinParameter = a + ',' + b;
   });
 }
 
@@ -27,7 +28,7 @@ export class CoinsService {
 
   constructor() {}
 
-  getCoins() {
+  fetchCoins() {
     return this.httpClient.get<ICoinProps[]>(this.apiUrl);
   }
 }
