@@ -1,0 +1,40 @@
+@use '../../../variables';
+@use '../../../mixins';
+
+.card-footer {
+    width: 100%;
+    height: 112px;
+    display: flex;
+    border-top: .5px solid #CCCCCC;
+    border-bottom: .5px solid #CCCCCC;
+    border-radius: 10px;
+
+
+    .card-footer-variation,
+    .card-footer-updated {
+        width: 50%;
+        @include mixins.center-element;
+        color: variables.$text-secondary;
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-footer-variation {
+        border-right: .5px solid #CCCCCC;
+
+        .card-footer-variation-value {
+            font-size: 2.4rem;
+            font-weight: 600;
+        }
+    }
+
+    .card-footer-updated {
+        .card-footer-timer {
+            font-size: 2.4rem;
+            font-weight: 600;
+        }
+    }
+}
