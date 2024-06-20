@@ -1,13 +1,13 @@
 
-@mixin container {
+@mixin display-column {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    justify-content: flex-start;
-    height: 100vh;
-    max-width: 1175px;
     width: 100%;
-    margin-top: 100px;
+    height: 100%;
 }
+
 
 @mixin center-element {
     display: flex;
