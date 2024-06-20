@@ -1,5 +1,5 @@
 export interface ICoinProps {
-    varBid: string 
+    pctChange: string 
     bid: string 
     timestamp: string
     code: string
