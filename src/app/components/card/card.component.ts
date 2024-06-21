@@ -19,7 +19,7 @@ export class CardComponent {
   updatedDate: string = ""
   errorMessage: string = ""
   // Formula para gerar 3 minutos
-  timer: number = 2 * 60 * 1000 
+  timer: number = 300000
 
   ngOnInit() {
     this.loadCoinsList()
