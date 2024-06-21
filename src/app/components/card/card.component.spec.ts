@@ -21,7 +21,7 @@ describe('CardComponent', () => {
     controller = TestBed.inject(HttpTestingController);
   });
 
-  it('should create app component and check request data name exist in card component html', () => {
+  it('The AppComponent should be created and should check some elements in html', () => {
     render(CardComponent, {
       componentProperties: { errorMessage: 'moeda nao encontrada AD-BRL' },
     });
@@ -40,7 +40,7 @@ describe('CardComponent', () => {
     expect(errorMessage).toBeTruthy();
   });
 
-  it('should check the request', () => {
+  it('should check the loader after the three minutes', () => {
     let timer = 300000;
 
     setTimeout(() => {

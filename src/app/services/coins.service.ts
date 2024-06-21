@@ -2,21 +2,20 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { ICoinProps } from '../../type';
 
+let urlParameter: string = '';
 
 /**
  * Procedimento para indicar o código de uma moeda, fazer a busca na API e exibir suas informações
-*/
-let coinParameter: string = '';
-
-function setNewCoin() {
+ */
+function addNewCoin() {
   const coinCodeList = ['CAD', 'ARS', 'GBP'];
 
   coinCodeList.reduce((a, b) => {
-    return coinParameter = a + ',' + b;
+    return (urlParameter = a + ',' + b);
   });
 }
 
-setNewCoin()
+addNewCoin();
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +23,7 @@ setNewCoin()
 export class CoinsService {
   httpClient = inject(HttpClient);
 
-  apiUrl = `https://economia.awesomeapi.com.br/last/${coinParameter}`;
+  apiUrl = `https://economia.awesomeapi.com.br/last/${urlParameter}`;
 
   constructor() {}
 
