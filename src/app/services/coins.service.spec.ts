@@ -6,6 +6,7 @@ import {
   HttpTestingController,
   provideHttpClientTesting,
 } from '@angular/common/http/testing';
+import { render } from '@testing-library/angular';
 
 describe('CoinsService', () => {
   let service: any = CoinsService;
