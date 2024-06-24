@@ -13,7 +13,4 @@ export class FooterComponent {
   pctChange = computed(() => this.coin()?.pctChange)
   updatedDate = input<any>()
   
-  ngOnInit() {
-    console.log(this.coin.name)
-  }
 }
