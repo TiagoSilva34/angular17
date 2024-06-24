@@ -12,10 +12,11 @@ import { interval } from 'rxjs';
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
 })
+
 export class CardComponent {
   coinsService = inject(CoinsService);
   coinList: ICoinProps[] = [];
-  showLoader: boolean = false;
+  showLoader: any = undefined;
   updatedDate: string = '';
   errorMessage: string = '';
   // Formula para gerar 3 minutos
@@ -49,9 +50,7 @@ export class CardComponent {
     });
   }
 
-  refreshCoin(coin: ICoinProps) {
-    console.log(coin);
-  }
+  refreshCoin(coin: ICoinProps) {}
 
   getCurrentTime() {
     // Pega a hora atual do windows
