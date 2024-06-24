@@ -20,7 +20,7 @@ Execute o comando no terminal `ng build` para construir o projeto. Os artefatos 
 
 ## Executando testes 
 
-Execute o comando no terminal `ng test` para executar os testes
+Execute o comando no terminal `npm run test` para executar os testes
 
 ## Executando aplicação em container do Docker 
 
