@@ -22,5 +22,9 @@ Execute o comando no terminal `ng build` para construir o projeto. Os artefatos 
 
 Execute o comando no terminal `ng test` para executar os testes
 
+## Executando aplicação em container do Docker 
+
+Execute o comando no terminal `docker run -p 4200:4200 angular-docker` para executar os testes
+
 
 Para obter mais ajuda sobre o Angular CLI, use `ng help` ou confira a página [Visão geral do Angular CLI e referência de comandos](https://angular.dev/tools/cli).
