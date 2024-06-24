@@ -20,8 +20,8 @@
     {'red': coin.bid < '1.00', 
     'green': coin.bid > '1.00' && coin.bid < '5.00',
     'blue': coin.bid >= '5.00'
-    }" *ngIf="!showLoader || coin.bid">R$ {{ coin.bid }}</span>
+    }" *ngIf="!showLoader || showLoader === undefined">R$ {{ coin.bid }}</span>
   </div>
-  <app-footer [updatedDate]="updatedDate" [coin]="coin" *ngIf="!showLoader"></app-footer>
+  <app-footer [updatedDate]="updatedDate" [coin]="coin" *ngIf="!showLoader || showLoader === undefined"></app-footer>
 </div>
 }
