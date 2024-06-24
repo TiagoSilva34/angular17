@@ -12,4 +12,21 @@ import { CardComponent } from './components/card/card.component';
 })
 export class AppComponent {
   title = 'teste-frete-rapido';
+
+  // Adiciona o scroll dinamicamente 
+  ngDoCheck() {
+    window.addEventListener("scroll", function(){
+      let header = this.document.getElementById("app-header") as HTMLElement
+
+      if(window.scrollY > 0) {
+          header.style.position = "fixed"
+          header.style.inset = "0"
+          header.style.zIndex = "10"
+       } else {
+          header.style.position = ""
+          header.style.inset = ""
+          header.style.zIndex = ""
+      }
+    })
+  }
 }
